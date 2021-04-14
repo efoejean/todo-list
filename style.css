@@ -33,6 +33,11 @@ body {
   background-color: rosybrown;
 }
 
+.card {
+  border: solid thin black;
+  border-radius: 4px;
+}
+
 .flex {
   display: flex;
   gap: var(--medium-gap);
