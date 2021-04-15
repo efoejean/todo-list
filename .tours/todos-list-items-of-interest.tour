@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "ToDos List Items of Interest",
+  "steps": [
+    {
+      "file": "scripts.js",
+      "description": "Function **composition.** Here, the **return value** of `createElement` are passed into or **composed** into `appendChild`.",
+      "line": 1
+    }
+  ]
+}
