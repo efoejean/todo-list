@@ -1,6 +1,4 @@
-document.body.appendChild(document.createElement('ul'));
-
-const ul = document.querySelector('ul');
+const ul = document.body.appendChild(document.createElement('ul'));
 
 document.querySelector('form').addEventListener('submit', event => {
   event.preventDefault();
