@@ -4,9 +4,15 @@ const ul = document.querySelector('ul');
 
 document.querySelector('form').addEventListener('submit', event => {
   event.preventDefault();
-  // TODO: Wrap that in an `<li></li>`
-  // TODO: Append that to the `<ul></ul>`
-  const newToDo = `<li>${event.target.elements[0].value}</li>`;
+
+  const id = Date.now();
+
+  const newToDo = `
+    <li>
+    <input type="checkbox" id="${id}">
+    <label for="${id}">${event.target.elements[0].value}</label>
+    </li>
+  `;
 
   // innerHTML - just assign a string that has HTML inside of it
   ul.innerHTML = newToDo;
