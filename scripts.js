@@ -16,9 +16,6 @@ document.querySelector('form').addEventListener('submit', event => {
     </li>
   `;
 
-  // TODO: Push this new item to `todos` and wrap it in an object.
-  // {task: "My new todo", completed: false, id: }
-
   todos.push({
     task: event.target.elements[0].value,
     completed: false,
