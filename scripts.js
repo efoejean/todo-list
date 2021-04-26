@@ -57,10 +57,10 @@ function renderTodos(todoItems) {
   // TODO: Turn a bunch of todos li
   ul.innerHTML = todoItems
     .map(
-      todoItem => `
+      ({ id, task }) => `
   <li>
-  <input type="checkbox" id="${todoItem.id}">
-  <label for="${todoItem.id}">${todoItem.task}</label>
+  <input type="checkbox" id="${id}">
+  <label for="${id}">${task}</label>
   </li>
   `,
     )
