@@ -54,22 +54,42 @@ const todos = [
 
 // Function Declarations
 function renderTodos(todoItems) {
-  // TODO: Turn a bunch of todos li
   ul.innerHTML = todoItems
-    .map(
-      ({ id, task }) => `
+    .map(({ id, task, completed }) => {
+      if (completed) {
+        return `
+        <li class="is-completed">
+        <input type="checkbox" id="${id}" >
+        <label for="${id}">${task}</label>
+        </li>
+        `;
+      }
+
+      return `
   <li>
   <input type="checkbox" id="${id}">
   <label for="${id}">${task}</label>
   </li>
-  `,
-    )
+  `;
+    })
     .join('');
+
+  // TODO: Move this to its own function - use ES Modules
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', ({ target }) => {
+      // Iterate over `todos` and keep going until the `id` of a todo item matches with the `id` that is coming from the input we just checked
+      const foundTodo = todos.find(({ id }) => id === Number(target.id));
+
+      // Inverse the boolean
+      foundTodo.completed = !foundTodo.completed;
+      renderTodos(todos);
+    });
+  });
 }
 
+// Business Logic
 renderTodos(todos);
 
-// Business Logic
 document.querySelector('form').addEventListener('submit', event => {
   event.preventDefault();
 
