@@ -1,5 +1,6 @@
 // Variable Declarations
 const ul = document.body.appendChild(document.createElement('ul'));
+const todosCounter = document.querySelector('#todos-counter');
 
 const todos = [
   {
@@ -74,7 +75,6 @@ function renderTodos(todoItems) {
     })
     .join('');
 
-  // TODO: Move this to its own function - use ES Modules
   document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', ({ target }) => {
       // Iterate over `todos` and keep going until the `id` of a todo item matches with the `id` that is coming from the input we just checked
@@ -82,9 +82,14 @@ function renderTodos(todoItems) {
 
       // Inverse the boolean
       foundTodo.completed = !foundTodo.completed;
+
       renderTodos(todos);
     });
   });
+
+  todosCounter.innerText = `${ul.querySelectorAll('.is-completed').length} / ${
+    todos.length
+  }`;
 }
 
 // Business Logic
