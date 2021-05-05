@@ -2,7 +2,7 @@
 const ul = document.body.appendChild(document.createElement('ul'));
 const todosCounter = document.querySelector('#todos-counter');
 
-const todos = [
+let todos = [
   {
     userId: 1,
     id: 1,
@@ -62,6 +62,7 @@ function renderTodos(todoItems) {
         <li class="is-completed">
         <input type="checkbox" id="${id}" >
         <label for="${id}">${task}</label>
+        <button data-id="${id}">Delete</button>
         </li>
         `;
       }
@@ -70,6 +71,8 @@ function renderTodos(todoItems) {
   <li>
   <input type="checkbox" id="${id}">
   <label for="${id}">${task}</label>
+  <button data-id="${id}">Delete</button>
+
   </li>
   `;
     })
@@ -82,6 +85,14 @@ function renderTodos(todoItems) {
 
       // Inverse the boolean
       foundTodo.completed = !foundTodo.completed;
+
+      renderTodos(todos);
+    });
+  });
+
+  document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', event => {
+      todos = todos.filter(({ id }) => id !== Number(event.target.dataset.id));
 
       renderTodos(todos);
     });
