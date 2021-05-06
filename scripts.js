@@ -42,8 +42,8 @@ function renderTodos(todoItems) {
   });
 
   document.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', event => {
-      todos = todos.filter(({ id }) => id !== Number(event.target.dataset.id));
+    button.addEventListener('click', ({ target }) => {
+      todos = todos.filter(({ id }) => id !== Number(target.dataset.id));
 
       renderTodos(todos);
     });
