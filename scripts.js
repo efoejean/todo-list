@@ -1,4 +1,4 @@
-import { todos } from './data.js';
+import todos from './data.js';
 
 // Variable Declarations
 const ul = document.body.appendChild(document.createElement('ul'));

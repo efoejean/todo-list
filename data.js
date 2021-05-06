@@ -1,4 +1,4 @@
-export const todos = [
+export default [
   {
     userId: 1,
     id: 1,
@@ -48,5 +48,3 @@ export const todos = [
     completed: true,
   },
 ];
-
-export const sayHello = () => 'hello';
